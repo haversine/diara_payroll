@@ -4,7 +4,7 @@ class Controller_Dash extends Controller_Main {
 
 	public function action_index()
 	{
-		$this->response->body('dash view');
+
 	}
 
 } // End Welcome
