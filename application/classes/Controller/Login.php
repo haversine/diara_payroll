@@ -82,6 +82,7 @@ class Controller_Login extends Controller_Template
             Notify::error('User pressed the "cancel" button! Can not log in.');
         } elseif ($this->_openid->validate()) { // Auth success
 
+
             // Try to find the user from the database
             $user = ORM::factory('User', ['google_id' => $this->_openid->identity]);
 
@@ -96,6 +97,7 @@ class Controller_Login extends Controller_Template
                 Notify::error('You are not allowed to log in.');
             }
         }
+        Notify::error('User not validated!');
 
         $this->redirect('');
     }

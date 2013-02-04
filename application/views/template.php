@@ -41,7 +41,7 @@
                     <? if(!Auth::instance()->logged_in()) { ?>
                     <li><a href="<?=URL::base()?>login">Login</a></li>
                     <? } else { ?>
-                    <li><a href="<?=URL::base()?>login/logout">Logout</a></li>
+                    <li><a href="<?=URL::base()?>logout">Logout</a></li>
                     <? } ?>
                 </ul>
             </div>
@@ -55,6 +55,7 @@
 <div class="container">
 
     <?=Notify::render()?>
+    <?Notify::msg('This is a message')?>
 
     <?=$content?>
 
