@@ -50,8 +50,11 @@
     </div>
 </div>
 
+
+<!-- content goes here -->
 <div class="container">
 
+    <?=$content?>
 
 </div>
 <!-- /container -->
