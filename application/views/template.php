@@ -54,6 +54,8 @@
 <!-- content goes here -->
 <div class="container">
 
+    <?=Notify::render()?>
+
     <?=$content?>
 
 </div>
