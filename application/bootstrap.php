@@ -22,7 +22,7 @@ else
  * @link http://kohanaframework.org/guide/using.configuration
  * @link http://www.php.net/manual/timezones
  */
-date_default_timezone_set('America/Chicago');
+date_default_timezone_set('Europe/Tallinn');
 
 /**
  * Set the default locale.
@@ -127,3 +127,5 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'controller' => 'welcome',
 		'action'     => 'index',
 	));
+
+Cookie::$salt = 'iPJb2cn6Z7uh78JtTXSUOCfKsR3i40Vw';
