@@ -55,8 +55,6 @@
 <div class="container">
 
     <?=Notify::render()?>
-    <?Notify::msg('This is a message')?>
-
     <?=$content?>
 
 </div>

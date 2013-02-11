@@ -97,8 +97,10 @@ class Controller_Login extends Controller_Template
                 Notify::error('You are not allowed to log in.');
             }
         }
-        Notify::error('User not validated!');
-
+        else
+        {
+            Notify::error('User not validated!');
+        }
         $this->redirect('');
     }
 
