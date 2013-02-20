@@ -4,7 +4,7 @@ class Controller_Employees extends Controller_Main {
 
     public function action_view()
     {
-        $this->template->content = View::factory('dash/index');
+        $this->template->content = View::factory('employees/view');
     }
 
 } // End Welcome
