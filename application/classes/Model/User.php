@@ -9,7 +9,7 @@ class Model_User extends Model_Auth_User
 
     public static function month($month){
         $month = date("F", mktime(0, 0, 0, $month));
-        return $month;
+        return __($month);
     }
 
     public static function year($year){
