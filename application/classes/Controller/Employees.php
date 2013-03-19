@@ -6,6 +6,18 @@ class Controller_Employees extends Controller_Main {
     {
         $this->template->content = View::factory('employees/view');
         $this->template->content->tasks = ORM::factory('Task')->find_all();
+
+       //$this->template->content->employee = ORM::factory('User', $this->request->param('id'));
+
+        $month = $this->request->query('month');
+        $this->template->content->month = $month;
+
+        $year = $this->request->query('year');
+        $this->template->content->year = $year;
+        //$this->template->content->month = $month;
+
+        //$year = $this->request->query('year');
+       // $this->template->content->year = $year;
     }
 
 } // End Welcome
