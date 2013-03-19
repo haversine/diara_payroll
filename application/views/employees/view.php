@@ -11,18 +11,16 @@
 <div class="container">
 
     <div class="page-header">
-        <h3>
-
-            <?=$month = Model_User::month($month)?>
-            <?=$year = Model_User::year($year)?>
-
-        </h3>
 
         <a href="../dash"><i class="icon-chevron-left"></i> Tagasi</a>
     </div>
 
     <p class="text-left">
-    <h4>Jaak Punapõld, Veebruar 2013</h4>
+    <h4>
+    <?=$employee= Model_User::employee($employee->username)?>,
+    <?=$month = Model_User::month($month)?>
+    <?=$year = Model_User::year($year)?>
+    </h4>
     </p>
 
         <a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#addtask">

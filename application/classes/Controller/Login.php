@@ -93,6 +93,7 @@ class Controller_Login extends Controller_Template
             if ($user->has('roles', 1)) {
                 Auth::instance()->force_login($user);
                 Notify::success(__('Logged in as user :user', [':user' => $user->email]));
+
             } else {
                 Notify::error('You are not allowed to log in.');
             }

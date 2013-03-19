@@ -3,7 +3,6 @@ class Model_User extends Model_Auth_User
 {
 
     public static function employee($employee){
-        $employee = ucwords(str_replace('-',' ',$employee ));
         return $employee;
     }
 
