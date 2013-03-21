@@ -32,18 +32,18 @@
     <div id="addtask" class="collapse in">
         <fieldset>
             <legend>Uue töö lisamine</legend>
-                <form class="form-horizontal" action=<?=URL::base()?>"/tasks/create_new" method="post">
+                <form class="form-horizontal" action=<?=URL::base()?>tasks/create_new method="post">
                     <div class="control-group">
                         <label class="control-label" for="workerName">Töö tegija</label>
                         <div class="controls">
-                            <input class="input-default" id="workerName" type="text" placeholder="Jaak Punapõld" disabled>
+                            <input name="task[id]" class="input-default" id="workerName" type="text" value= "<?=$employee?>" readOnly>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="workDate">Töö tehti</label>
                         <div class="controls">
-                            <input class="input-default" id="workDate" type="text" placeholder="04.02.2013" disabled>
+                            <input class="input-default" id="workDate" type="text" value="04.02.2013" disabled>
                         </div>
                     </div>
 
@@ -107,9 +107,9 @@
         <tfoot>
         <tr>
             <th></th>
-            <th>&sum; 6h</th>
+            <th>&sum; <?=Model_Task::get_total_hours($tasks)?></th>
             <th></th>
-            <th>&sum; 30€</th>
+            <th>&sum; <?=Model_Task::get_total_pay($tasks)?></th>
             <th colspan="2"></th>
         </tr>
         </tfoot>
