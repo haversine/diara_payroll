@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Help task to display general instructons and list all tasks
+ * Help tasks to display general instructons and list all tasks
  *
  * @package    Kohana
  * @category   Helpers

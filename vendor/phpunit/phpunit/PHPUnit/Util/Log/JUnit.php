@@ -46,7 +46,7 @@
 /**
  * A TestListener that generates a logfile of the test execution in XML markup.
  *
- * The XML markup used is the same as the one that is used by the JUnit Ant task.
+ * The XML markup used is the same as the one that is used by the JUnit Ant tasks.
  *
  * @package    PHPUnit
  * @subpackage Util_Log

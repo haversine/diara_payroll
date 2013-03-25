@@ -18,9 +18,6 @@ class Controller_Employees extends Controller_Main {
             ->where('user_id', '=', $this->request->param('id'))
             ->and_where(DB::expr('MONTH(created)'), '=', $month)
             ->and_where(DB::expr('YEAR(created)'), '=', $year)->find_all();
-
-        // SELECT * FROM tasks WHERE user_id = <user-id> AND MONTH(created) = <month> AND YEAR(created) = <year>;
-
     }
 
 } // End Welcome

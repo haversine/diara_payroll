@@ -20,6 +20,8 @@
     <?=$employee= Model_User::employee($employee->username)?>,
     <?=$month = Model_User::month($month)?>
     <?=$year = Model_User::year($year)?>
+
+
     </h4>
     </p>
 
@@ -50,7 +52,7 @@
                     <div class="control-group">
                         <label class="control-label" for="workDescription">Töö kirjeldus</label>
                         <div class="controls">
-                            <textarea name="task[name]" class="input-xxlarge" id="workDescription" type="text" placeholder="Sisesta tehtud töö kirjeldus..." rows="2"></textarea>
+                            <textarea name="task[name]" class="input-xxlarge" id="workDescription" type="text" placeholder="Sisesta tehtud töö kirjeldus..." value="" rows="2"></textarea>
                         </div>
                     </div>
 

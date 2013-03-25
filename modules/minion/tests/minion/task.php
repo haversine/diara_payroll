@@ -29,13 +29,13 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 	}
 
 	/**
-	 * Tests that a task can be converted to a class name
+	 * Tests that a tasks can be converted to a class name
 	 *
 	 * @test
 	 * @covers Minion_Task::convert_task_to_class_name
 	 * @dataProvider provider_convert_task_to_class_name
 	 * @param string Expected class name
-	 * @param string Input task name
+	 * @param string Input tasks name
 	 */
 	public function test_convert_task_to_class_name($expected, $task_name)
 	{
@@ -55,12 +55,12 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 	}
 
 	/**
-	 * Tests that the task name can be found from a class name / object
+	 * Tests that the tasks name can be found from a class name / object
 	 *
 	 * @test
 	 * @covers Minion_Task::convert_class_to_task
 	 * @dataProvider provider_convert_class_to_task
-	 * @param string Expected task name
+	 * @param string Expected tasks name
 	 * @param mixed  Input class
 	 */
 	public function test_convert_class_to_task($expected, $class)

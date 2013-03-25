@@ -4,7 +4,7 @@ class Model_Task extends ORM
 
     public function get_formatted_time($task)
     {
-   // $formattedtime = substr($task,0,5);
+   // $formattedtime = substr($tasks,0,5);
     return substr($task,0,5);
     }
 
@@ -56,5 +56,20 @@ class Model_Task extends ORM
         $tasks->created = date("Y-m-d H:i:s",time());
         $tasks->save();
     }
+
+    public static function task_update($form_data)
+    {
+       // $user = ORM::factory('User')->where('username','=',$form_data['id'])->find();
+
+        $tasks = ORM::factory('Task',$form_data['taskid'] );
+        $tasks->name = $form_data['name'];
+        $tasks->time = $form_data['time'];
+        $tasks->notes = $form_data['notes'];
+        $tasks->user_id = $form_data['id'];
+        $tasks->created = $form_data['date'];
+        $tasks->save();
+    }
+
+
 
 }
