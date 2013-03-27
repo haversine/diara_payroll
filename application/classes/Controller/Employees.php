@@ -12,7 +12,8 @@ class Controller_Employees extends Controller_Main {
 
         $year = $this->request->query('year');
         $this->template->content->year = $year;
-
+        $curdate=date("d m Y",time());
+        $this->template->content->curdate=$curdate;
 
         $this->template->content->tasks = ORM::factory('Task')
             ->where('user_id', '=', $this->request->param('id'))

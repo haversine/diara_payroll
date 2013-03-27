@@ -45,14 +45,14 @@
                     <div class="control-group">
                         <label class="control-label" for="workDate">Töö tehti</label>
                         <div class="controls">
-                            <input class="input-default" id="workDate" type="text" value="04.02.2013" disabled>
+                            <input class="input-default" id="workDate" type="text" value='<?=$curdate?>' readOnly>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="workDescription">Töö kirjeldus</label>
                         <div class="controls">
-                            <textarea name="task[name]" class="input-xxlarge" id="workDescription" type="text" placeholder="Sisesta tehtud töö kirjeldus..." value="" rows="2"></textarea>
+                            <textarea name="task[name]" class="input-xxlarge" id="workDescription" type="text" placeholder="Sisesta tehtud töö kirjeldus..."  rows="2"></textarea>
                         </div>
                     </div>
 

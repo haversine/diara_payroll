@@ -9,6 +9,7 @@ class Controller_Dash extends Controller_Main {
         $year=$this->request->query('year');
         $this->template->content->year = $year;
         $this->template->content->summary = Model_Employee::get_year_summary($year);
+
 	}
 
 } // End Welcome

@@ -13,58 +13,27 @@ class Model_Employee extends ORM
     {
 
         $summary= DB::select(array('users.username', 'username'),array(DB::expr('SEC_TO_TIME(SUM(TIME_TO_SEC(tasks.time)))'),'worktotal'),
-            array(DB::expr('(MONTHNAME(tasks.created))'),'month'))
+            array(DB::expr('(MONTH(tasks.created))'),'month'))
             ->from('users')
             ->join('tasks','LEFT')->on('users.id','=','tasks.user_id')
-            //->where(DB::expr('YEAR(tasks.created)'),'=', $year)
-            ->group_by('users.id',DB::expr('MONTHNAME(tasks.created)'))
+            ->where(DB::expr('YEAR(tasks.created)'),'=', $year)
+            ->group_by('users.id',DB::expr('MONTH(tasks.created)'))
             ->execute();
         $summary_array= $summary->as_array();
-        $summary_array= concatenate_rows($summary_array);
+        $summary_array= Model_Employee::concatenate_rows($summary_array);
 
     return $summary_array;
     }
 
     public static function  concatenate_rows($a)
     {
-        $ordered_a = array()
-        $count = count($a);
-        $o=0;
 
-        for ($i = 0; $i < $count; $i++) {
+        $formatted_array = array();
 
-        if($i==0)
-        {
-        $ordered_a[]=a[$i];
+        foreach( $a as $element ) {
+            $formatted_array[ $element['username'] ][] = $element;
         }
-            //IF row is not the second-to-last
-            if($i<$count-1){
-                    //IF first element of this row is the same as the next row's
-                   if($a[$i][0]==$a[$i+1][0]){
-                       $count2 = $a[$i];
-                       //Iterate through subelements of current row
-                       for ($j = 0; $j < $count2; $j++) {
-                       //if the current element is empty
-                       if($a[$i][$j]=null){
-                       //add the value from the next row to our ordered array
-                        $ordered_a[$o][$j]+=$a[$i+1][$j];
-                       }
-
-
-                       }
-                     }
-                    else{
-                    $o++;
-                    $ordered_a[]=a[$i];
-                    }
-
-
-
-            }
-
-
-        }
-
+return $formatted_array;
 
     }
 
@@ -84,6 +53,12 @@ class Model_Employee extends ORM
     public static function get_total_rounded_time($row)
     {
         return ((int)(substr($row, 0, 2)));
+    }
+
+    public static function name_to_id($user)
+    {
+        $user = ORM::factory('User')->where('username','=',$user)->find();
+        return $user->id;
     }
 
 }

@@ -27,7 +27,7 @@ class Controller_Tasks extends Controller_Main
 
     public function action_create_new()
     {
-        $form_data = $this->request->post('tasks');
+        $form_data = $this->request->post('task');
         Notify::success(count($form_data));
         Notify::success($form_data["id"]);
         Model_Task::create_new($form_data);

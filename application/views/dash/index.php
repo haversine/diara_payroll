@@ -23,21 +23,25 @@
         <thead>
         <tr>
             <th>Töötaja nimi</th>
-            <?foreach ($summary as $summary_row): ?>
-            <th><?=$summary_row['month']?></th>
-            <?endforeach?>
-            <th>Kokku</th>
+
+
+            <th>Kuu</th>
+            <th>Tehtud töötunde</th>
             <th>Palk</th>
         </tr>
         </thead>
         <tbody>
             <?foreach ($summary as $summary_row): ?>
         <tr>
-            <td><?=$summary_row['username']?></td>
-            <td><?=Model_Employee::get_total_rounded_time($summary_row['worktotal'])?></td>
-            <td><?=Model_Employee::get_total_rounded_pay($summary_row['worktotal'])?></td>
+            <td rowspan="<?=count($summary_row)?>"><?=$summary_row[0]['username']?></td>
+
+                <?foreach ($summary_row as $element): ?>
+                <td><?=Model_User::month($element['month'])?></td>
+            <td><a href="<?=URL::base()?>employees/view/<?=Model_Employee::name_to_id($element['username'])?>?month=<?=$element['month']?>&year=<?=$year?>"><?=Model_Employee::get_total_rounded_time($element['worktotal'])?></a></td>
+            <td><?=Model_Employee::get_total_rounded_pay($element['worktotal'])?></td>
         </tr>
             <?endforeach?>
+                <?endforeach?>
         </tbody>
         <tfoot>
         <tr>
