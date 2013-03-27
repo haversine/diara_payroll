@@ -57,7 +57,14 @@
 <div class="container">
 
     <?=Notify::render()?>
+
+    <? if(Auth::instance()->logged_in()){?>
     <?=$content?>
+    <?} ?>
+
+
+
+
 
 </div>
 <!-- /container -->
