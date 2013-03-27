@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title> </title>
+    <title> Töö nr. <?=$task_edit->id?></title>
 </head>
 
-<?=$task_edit->name?>
 
 <body>
 
@@ -12,24 +11,18 @@
 
     <div class="page-header">
 
-        <a href="../dash"><i class="icon-chevron-left"></i> Tagasi</a>
+        <a href="../../dash"><i class="icon-chevron-left"></i> Tagasi</a>
     </div>
 
     <p class="text-left">
     <h4>
-
     </h4>
     </p>
-
-    <a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#addtask">
-        <i class="icon-plus-sign icon-white"></i>
-        <small>Lisa töö</small>
-    </a>
 
     <div class="clearfix"></div>
     <div id="addtask" class="collapse in">
         <fieldset>
-            <legend>Töö muutmine</legend>
+            <legend>Töö nr. <?=$task_edit->id?> muutmine</legend>
             <form class="form-horizontal" action=<?=URL::base()?>tasks/update method="post">
                 <div class="control-group">
                     <label class="control-label" for="workerName">Töö tegija</label>

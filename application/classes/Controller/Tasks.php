@@ -8,12 +8,7 @@
  */
 class Controller_Tasks extends Controller_Main
 {
-    public function action_view()
-    {
-        $this->template->content = View::factory('tasks/view');
-        $this->template->content->task_edit = ORM::factory('Task')->where('id', '=',$this->request->param('id'))->find();
 
-    }
 
     public function action_delete()
     {
@@ -26,11 +21,8 @@ class Controller_Tasks extends Controller_Main
 
     public function action_edit()
     {
-        $id = $this->request->param('id');
-        //Model_Task::task_edit($id);
-        //Notify::success($task_edit->name);
-        $this->redirect('tasks/view/'.$id);
-
+        $this->template->content = View::factory('tasks/view');
+        $this->template->content->task_edit = ORM::factory('Task')->where('id', '=',$this->request->param('id'))->find();
     }
 
     public function action_create_new()
@@ -50,7 +42,7 @@ class Controller_Tasks extends Controller_Main
     {
         $form_data = $this->request->post('edit');
         //Notify::success($this->request->param('id'));
-       //Notify::success($form_data["taskid"]);
+       Notify::success($form_data["notes"]);
         Model_Task::task_update($form_data);
 
 
