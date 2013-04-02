@@ -8,6 +8,8 @@ class Model_Task extends ORM
     return substr($task,0,5);
     }
 
+
+
     public function get_earned_money($task)
     {
     $rate=0.1;
@@ -22,11 +24,12 @@ class Model_Task extends ORM
         foreach ($tasks as $time) {
 
             $start = $time->time;
-            $converted = ((int)(substr($start, -7, 2)) * 60 + (int)(substr($start, 3, -3)));
+            $converted = ((int)(substr($start, 0, 3)) * 60 + (int)(substr($start, 3, 6)));
             $sum += $converted;
 
 
         }
+
         return sprintf('%02d',(floor($sum/60))) . ':' . sprintf('%02d',$sum%60);
     }
 
@@ -36,7 +39,7 @@ class Model_Task extends ORM
         foreach ($tasks as $time) {
 
             $start = $time->time;
-            $converted = ((int)(substr($start, -7, 2)) * 60 + (int)(substr($start, 3, -3)));
+            $converted = ((int)(substr($start, 0, 3)) * 60 + (int)(substr($start, 3, 6)));
             $sum += $converted;
 
 

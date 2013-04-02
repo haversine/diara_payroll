@@ -34,12 +34,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Jolly</a>
+            <a class="brand" href="<?=URL::base()?>dash?year=<?=date('Y')?>">Jolly</a>
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <? if(!Auth::instance()->logged_in()) { ?>
                     <li><a href="<?=URL::base()?>login">Login</a></li>
                     <? } else { ?>

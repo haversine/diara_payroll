@@ -2,16 +2,25 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title> Töö nr. <?=$task_edit->id?></title>
+
+    <script>
+        function goBack()
+        {
+            window.history.go(-1)
+        }
+    </script>
 </head>
 
 
 <body>
 
+
+
 <div class="container">
 
     <div class="page-header">
 
-        <a href="../../dash"><i class="icon-chevron-left"></i> Tagasi</a>
+        <a href=# onclick="goBack()"> <i class="icon-chevron-left"></i> Tagasi</a>
     </div>
 
     <p class="text-left">

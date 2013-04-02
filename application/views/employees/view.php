@@ -12,7 +12,7 @@
 
     <div class="page-header">
 
-        <a href="../dash"><i class="icon-chevron-left"></i> Tagasi</a>
+        <a href="../../dash?year=<?=date("Y")?>"><i class="icon-chevron-left"></i> Tagasi</a>
     </div>
 
     <p class="text-left">

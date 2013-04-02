@@ -23,8 +23,9 @@
         <thead>
         <tr>
             <th>Töötaja nimi</th>
-
-
+            <?foreach ($summary as $summary_row): ?>
+            <th><?=$summary_row['month']?></th>
+            <?endforeach?>
             <th>Kuu</th>
             <th>Tehtud töötunde</th>
             <th>Palk</th>
@@ -33,21 +34,45 @@
         <tbody>
             <?foreach ($summary as $summary_row): ?>
         <tr>
-            <td rowspan="<?=count($summary_row)?>"><?=$summary_row[0]['username']?></td>
+            <td><?=$summary_row['username']?></td>
 
-                <?foreach ($summary_row as $element): ?>
-                <td><?=Model_User::month($element['month'])?></td>
-            <td><a href="<?=URL::base()?>employees/view/<?=Model_Employee::name_to_id($element['username'])?>?month=<?=$element['month']?>&year=<?=$year?>"><?=Model_Employee::get_total_rounded_time($element['worktotal'])?></a></td>
-            <td><?=Model_Employee::get_total_rounded_pay($element['worktotal'])?></td>
+            <td><a href="<?=URL::base()?>employees/view/<?=Model_Employee::name_to_id($summary_row['username'])?>?month=<?=$summary_row['month']?>&year=<?=$year?>"><?=Model_Employee::get_total_rounded_time($summary_row['worktotal'])?></a></td>
+            <td><?=Model_Employee::get_total_rounded_pay($summary_row['worktotal'])?> €</td>
         </tr>
             <?endforeach?>
-                <?endforeach?>
         </tbody>
         <tfoot>
         <tr>
         </tr>
         </tfoot>
     </table>
+
+    <legend>Uue töötaja lisamine</legend>
+
+    <div id="addtask" class="collapse in">
+        <fieldset>
+            <form class="form-horizontal" action=<?=URL::base()?>dash/adduser method="post">
+                <div class="control-group">
+                    <label class="control-label" for="workerName">Töötaja nimi</label>
+                    <div class="controls">
+                        <input name="user[name]" class="input-default" id="workerName" type="text" placeholder='Sisesta töötaja nimi'>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="workerEmail">Töötaja email</label>
+                    <div class="controls">
+                        <input name="user[email]" class="input-default" id="workerEmail" type="text" placeholder='Sisesta töötaja email'>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-primary">Lisa</button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
 
 
 
