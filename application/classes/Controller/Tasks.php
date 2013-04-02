@@ -15,7 +15,7 @@ class Controller_Tasks extends Controller_Main
         $id = $this->request->param('id');
         ORM::factory('Task')->where('id','=', $id)->find()->delete();
         Notify::success("Task deleted");
-        $this->redirect('dash');
+        $this->redirect('dash?year='.date("Y"));
 
     }
 
@@ -34,7 +34,7 @@ class Controller_Tasks extends Controller_Main
 
 
         Notify::success("Task added");
-        $this->redirect('dash');
+        $this->redirect('dash?year='.date("Y"));
 
     }
 
@@ -47,7 +47,7 @@ class Controller_Tasks extends Controller_Main
 
 
         Notify::success("Task edited");
-        $this->redirect('dash');
+        $this->redirect('dash?year='.date("Y"));
 
     }
 

@@ -12,25 +12,32 @@ class Model_Employee extends ORM
     public static function get_year_summary($year)
     {
 
-        $summary= DB::select(array(DB::expr('group_concat(DISTINCT users.username)'), 'username'),array(DB::expr('SEC_TO_TIME(SUM(TIME_TO_SEC(tasks.time)))'),'worktotal'),
+        $summary= DB::select(array('users.username', 'username'),array(DB::expr('SEC_TO_TIME(SUM(TIME_TO_SEC(tasks.time)))'),'worktotal'),
             array(DB::expr('(MONTH(tasks.created))'),'month'))
             ->from('users')
             ->join('tasks','LEFT')->on('users.id','=','tasks.user_id')
             ->where(DB::expr('YEAR(tasks.created)'),'=', $year)
-            ->group_by('users.username',DB::expr('MONTH(tasks.created)'))
+            ->group_by('users.id',DB::expr('MONTH(tasks.created)'))
             ->execute();
-     //   $summary_array= $summary->as_array();
-       //$summary_array= Model_Employee::concatenate_rows($summary_array);
+        $summary_array= $summary->as_array();
+        $summary_array= Model_Employee::concatenate_rows($summary_array);
 
-    return $summary;
+        return $summary_array;
     }
 
-    public static function  concatenate_rows($a)
+    public static function concatenate_rows($a)
     {
 
-    return $formatted_array;
+        $formatted_array = array();
+
+        foreach( $a as $element ) {
+            $formatted_array[ $element['username'] ][] = $element;
+        }
+        return $formatted_array;
 
     }
+
+
 
 
 
