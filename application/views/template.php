@@ -60,6 +60,12 @@
     <?=$content?>
     <?} ?>
 
+    <? if(!Auth::instance()->logged_in()){?>
+    <? echo('Log in to begin')?>
+    <?} ?>
+
+
+
 
 
 
